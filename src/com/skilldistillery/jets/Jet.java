@@ -1,6 +1,6 @@
 package com.skilldistillery.jets;
 
-public class Jet {
+public abstract class Jet {
 
 	protected String model;
 	protected double speed;
@@ -14,6 +14,11 @@ public class Jet {
 		this.price = price;
 	}
 	
+	public void fly() {
+		
+	}
 	
-	
+	public double getSpeedInMach() {
+		return speed;
+	}
 }
