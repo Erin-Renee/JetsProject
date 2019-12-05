@@ -1,31 +1,27 @@
 package com.skilldistillery.jets;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class JetsApp {
 	Scanner kb = new Scanner(System.in);
-	private static Airfield airfield = new Airfield();
-	public List<Jet> jets = airfield.jets;
-
-	public static void main(String[] args) {
-		JetsApp app = new JetsApp();
-		app.run();
-	}
+	Airfield airfield = new Airfield();
+	ArrayList<Jet> jets = new ArrayList<>();
 
 	public void run() {
 		System.out.println("Welcome to the Airfield!");
 		int choice;
-		do {
+		boolean menureturn = true;
+		while (menureturn) {
 			menu();
 			choice = kb.nextInt();
-			
-			
-			switch(choice) {
-			case 1: 
+
+			switch (choice) {
+			case 1:
 				listJets(jets);
 				break;
-			case 2: 
+			case 2:
 				Fly(jets);
 				break;
 			case 3:
@@ -39,13 +35,16 @@ public class JetsApp {
 				break;
 			case 7:
 				addJet(jets);
-			case 8: removeJet(jets);
-			break;
-			case 9 : 
-				Quit();
 				break;
-			}	
-		}while (choice !=10);
+			case 8:
+				removeJet(jets);
+				break;
+			case 9:
+				Quit();
+				menureturn = false;
+				break;
+			}
+		}
 	}
 
 	public void menu() {
@@ -58,9 +57,7 @@ public class JetsApp {
 		System.out.println("7: Add a jet to Fleet");
 		System.out.println("8: Remove a jet from Fleet");
 		System.out.println("9: Quit");
-		int choice = kb.nextInt();
 
-		
 	}
 
 	public void listJets(List<Jet> jets) {
@@ -99,59 +96,37 @@ public class JetsApp {
 			System.out.println("Longest Range " + longestRange.toString());
 		}
 	}
-	 public void loadCargo(List<Jet> jets) {
-		 for (Jet jet : jets) {
-	System.out.println(jet);
-	}
-		
-	 }	
-	 public void Fight(List<Jet> jets) {
-		 for (Jet jet : jets) {
-		System.out.println(jet);
-		 }
-		}
-		
-	 
-	 
-	 public void addJet(List<Jet> jets) {
-		 for (Jet jet : jets) {
-		System.out.println(jet);
-	}
-	
-	 }	
-	 public void removeJet(List<Jet> jets) {
-		 for (Jet jet : jets) {
+
+	public void loadCargo(List<Jet> jets) {
+		for (Jet jet : jets) {
 			System.out.println(jet);
 		}
-		
-	 }	
-	 public void Quit() {
-			System.out.println("goodbye");
+
+	}
+
+	public void Fight(List<Jet> jets) {
+		for (Jet jet : jets) {
+			System.out.println(jet);
 		}
-		
-	 }	
-	
-				 
-		 
-		 /* 
-		 * if (choice == 2) {
-		 * 
-		 * } if (choice == 3) {
-		 * 
-		 * } if (choice == 4) {
-		 * 
-		 * } if (choice == 5) {
-		 * 
-		 * } if (choice == 6) {
-		 * 
-		 * } if (choice == 7) {
-		 * 
-		 * } if (choice == 8) {
-		 * 
-		 * } if (choice == 9) {
-		 * 
-		 * } else { System.out.println("please enter a number 1-9"); run(); }
-		 */
-	
+	}
 
+	public void addJet(List<Jet> jets) {
+		for (Jet jet : jets) {
+			System.out.println(jet);
+		}
 
+	}
+
+	public void removeJet(List<Jet> jets) {
+		for (Jet jet : jets) {
+			System.out.println(jet);
+		}
+
+	}
+
+	public void Quit() {
+		System.out.println("goodbye");
+	}
+
+}		 
+	

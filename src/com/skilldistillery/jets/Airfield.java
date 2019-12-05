@@ -14,42 +14,41 @@ public class Airfield {
 	public Airfield() {
 		jets = new ArrayList<>();
 		
-	}
+	}//constructor
 
-	public  List<Jet> ParseFile() {
+	public void ParseFile() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("Jets.txt"));
 			String line = ""; 
 			while ((line = br.readLine()) != null) {
-				String[] fields = line.split(", ");		// goes to Jets.txt and breaks after a ", "
-				Jet newplane = null;
+				String[] fields = line.split(", ");
 				if (fields[0].equals("fighter")) {
 //					String model, double speed, int range, long price
-					newplane = new FighterJet(fields[0], fields[1], Double.parseDouble(fields[2]), Integer.parseInt(fields[3]),
-					Long.parseLong(fields[4]));		//5 fields for the 5 objects in Jets.txt separated by spaces
-					jets.add(newplane);
+					jets.add(new FighterJet(fields[0],fields[1], Double.parseDouble(fields[2]), Integer.parseInt(fields[3]),
+					Long.parseLong(fields[4])));
 				}
 				if (fields[0].equals("cargo")) {
-					newplane = new CargoPlane(fields[0], fields[1], Double.parseDouble(fields[2]), Integer.parseInt(fields[3]),
-							Long.parseLong(fields[4]));
-					jets.add(newplane);
+//					String model, double speed, int range, long price
+					jets.add(new CargoPlane(fields[0],fields[1], Double.parseDouble(fields[2]), Integer.parseInt(fields[3]),
+					Long.parseLong(fields[4])));
 				}
 				if (fields[0].equals("otherplane")) {
-					newplane = new JetImpl(fields[0], fields[1], Double.parseDouble(fields[2]), Integer.parseInt(fields[3]),
-							Long.parseLong(fields[4]));
-					jets.add(newplane);		//add the newplane(with its fields) to the array jets
+//					String model, double speed, int range, long price
+					jets.add(new JetImpl(fields[0],fields[1], Double.parseDouble(fields[2]), Integer.parseInt(fields[3]),
+					Long.parseLong(fields[4])));
 				}
 				
-			}
+			}//while loop
 			br.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return jets;
-	}
+		//System.out.println(jets);
+		//return jets;
+	}//public  List<Jet> ParseFile()
 	
-}
+}//class airfield
 
 

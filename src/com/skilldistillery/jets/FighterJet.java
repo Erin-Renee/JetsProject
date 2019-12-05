@@ -14,7 +14,7 @@ public class FighterJet extends Jet implements CombatReady {
 
 	@Override
 	public void fight () {
-		System.out.println("Preparing for DogFight");
+		System.out.println(this.getModel() + " Preparing for DogFight");
 		System.out.println("Systems Engaged");
 		System.out.println("Pew! Pew! Pew!");
 		
@@ -22,7 +22,7 @@ public class FighterJet extends Jet implements CombatReady {
 
 	@Override
 	public void fly() {
-		System.out.println(this.getModel() + " currently flying and has a range of " + this getRange());
+		System.out.println(this.getModel() + " currently flying and has a range of " + this.getRange());
 	}
 
 	
