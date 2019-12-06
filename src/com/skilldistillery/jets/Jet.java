@@ -67,7 +67,7 @@ public abstract class Jet {
 	}
 
 	public void fly() {
-		
+		System.out.println(this.getModel() + " is flying");
 	}
 	
 	

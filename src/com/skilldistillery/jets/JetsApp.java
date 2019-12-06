@@ -5,9 +5,16 @@ import java.util.List;
 import java.util.Scanner;
 
 public class JetsApp {
+	//fields
 	Scanner kb = new Scanner(System.in);
-	Airfield airfield = new Airfield();
-	ArrayList<Jet> jets = new ArrayList<>();
+	private Airfield airfield = new Airfield();
+	//ArrayList<Jet> jets = new ArrayList<>();
+	
+	public static void main(String[] args) {
+		JetsApp app = new JetsApp();
+		//((FighterJet) app.jets.get(0)).fight();
+		app.run();
+	}
 
 	public void run() {
 		System.out.println("Welcome to the Airfield!");
@@ -19,25 +26,28 @@ public class JetsApp {
 
 			switch (choice) {
 			case 1:
-				listJets(jets);
+				airfield.listJets();	//calls class Airfield and tells it to run method listJets()
 				break;
 			case 2:
-				Fly(jets);
+				airfield.fly();
 				break;
 			case 3:
-				fastestJet(jets);
+				airfield.fastestJet();
+				break;
+			case 4:
+				airfield.longestRange();
 				break;
 			case 5:
-				longestRange(jets);
+				airfield.loadCargo();
 				break;
 			case 6:
-				Fight(jets);
+				airfield.dogFight();
 				break;
 			case 7:
-				addJet(jets);
+				airfield.addJet(kb);
 				break;
 			case 8:
-				removeJet(jets);
+				airfield.removeJet(kb);
 				break;
 			case 9:
 				Quit();
@@ -60,69 +70,6 @@ public class JetsApp {
 
 	}
 
-	public void listJets(List<Jet> jets) {
-		for (Jet jet : jets) {
-			System.out.println(jet);
-		}
-	}
-
-	public void Fly(List<Jet> jets) {
-		for (Jet jet : jets) {
-			jet.fly();
-		}
-	}
-
-	public void fastestJet(List<Jet> jets) {
-		Jet fastestJet = null;
-		Double fast = Double.MIN_VALUE;
-		for (Jet jet : jets) {
-			if (jet.getSpeed() > fast) {
-				fast = jet.getSpeed();
-				fastestJet = jet;
-			}
-		}
-		System.out.println("Fastest Jet = " + fastestJet.toString());
-
-	}
-
-	public void longestRange(List<Jet> jets) {
-		Jet longestRange = null;
-		Integer range = Integer.MIN_VALUE;
-		for (Jet jet : jets) {
-			if (jet.getRange() > range) {
-				range = jet.getRange();
-				longestRange = jet;
-			}
-			System.out.println("Longest Range " + longestRange.toString());
-		}
-	}
-
-	public void loadCargo(List<Jet> jets) {
-		for (Jet jet : jets) {
-			System.out.println(jet);
-		}
-
-	}
-
-	public void Fight(List<Jet> jets) {
-		for (Jet jet : jets) {
-			System.out.println(jet);
-		}
-	}
-
-	public void addJet(List<Jet> jets) {
-		for (Jet jet : jets) {
-			System.out.println(jet);
-		}
-
-	}
-
-	public void removeJet(List<Jet> jets) {
-		for (Jet jet : jets) {
-			System.out.println(jet);
-		}
-
-	}
 
 	public void Quit() {
 		System.out.println("goodbye");
