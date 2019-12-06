@@ -7,11 +7,11 @@ public abstract class Jet {
 	private double speed;
 	private int range;
 	private long price;
-	
+
 	public Jet() {
-		
+
 	}
-	
+
 	public Jet(String type, String model, double speed, int range, long price) {
 		super();
 		this.type = type;
@@ -67,10 +67,9 @@ public abstract class Jet {
 	}
 
 	public void fly() {
-		System.out.println(this.getModel() + " is flying");
+		double flighttimex = (this.getRange()) / (this.getSpeed());
+		System.out.println(this.getModel() + ", is currently flying and has a range of " + this.getRange()
+				+ " at a speed of " + this.getSpeed() + " making the average flight time " + flighttimex);
 	}
-	
-	
+
 }
-	
-	

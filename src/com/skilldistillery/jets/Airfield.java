@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Airfield {
-	private List<Jet> jetsArr;
+	private List<Jet> jetsArr;		//listarray
 
 	public Airfield() {
 		jetsArr = new ArrayList<>();
-		parseFile();
+		parseFile();		//call parseFile() method
 	}// constructor
 
 	public void parseFile() {
@@ -45,7 +45,7 @@ public class Airfield {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(jetsArr);
+		// System.out.println(jetsArr);
 		// return jets;
 	}// public List<Jet> ParseFile()
 
@@ -56,8 +56,8 @@ public class Airfield {
 	}
 
 	public void fly() {
-		for (Jet jet : jetsArr) {
-			jet.fly();
+		for (Jet jet : jetsArr) {		// type object : arrayofobjects
+			jet.fly();		//call fly method from Jet
 		}
 	}
 
@@ -105,7 +105,7 @@ public class Airfield {
 
 	public void addJet(Scanner kb) {
 		System.out.println("Please enter jet type: ");
-		System.out.println("1. fighter, 2. cargo, 3. otherplane(enter 1-3): ");
+		System.out.println("1. fighter, 2. cargo, 3. other plane(enter 1-3): ");
 		int choicetype = kb.nextInt();
 		System.out.println("Please enter your jet model: ");
 		String choicemodel = kb.next();
@@ -124,25 +124,26 @@ public class Airfield {
 			jetsArr.add(new CargoPlane("cargo", choicemodel, choicespeed, choicerange, choiceprice));
 			break;
 		case 3:
-			jetsArr.add(new JetImpl("otherplane", choicemodel, choicespeed, choicerange, choiceprice));
+			jetsArr.add(new JetImpl("other plane", choicemodel, choicespeed, choicerange, choiceprice));
 			break;
 		default:
 			System.out.println("error in making new plane");
 			break;
 
-		}
+		}// switch
 
-	}
+	}// method addJet
 
 	public void removeJet(Scanner kb) {
 		System.out.println("Please select plane for disposal");
 		for (int i = 0; i < jetsArr.size(); i++) {
-			System.out.println((i+ 1)+ ". " + jetsArr.get(i));
-			
-		}
+			System.out.println((i + 1) + ". " + jetsArr.get(i));
+
+		} // for loop
 
 		int num = kb.nextInt();
-		jetsArr.remove(num-1);
+		jetsArr.remove(num - 1);
+		System.out.println("Plane has been destroyed.");
 	}
 
 }// class airfield
